@@ -24,6 +24,7 @@ namespace AcronymDataManager
             var documentClient = new DocumentClient(new Uri(ConfigurationManager.AppSettings["DocumentUri"]), ConfigurationManager.AppSettings["DocumentKey"]);
 
             string jsonContent = await req.Content.ReadAsStringAsync();
+            log.Info(jsonContent);
             var input = JsonConvert.DeserializeObject<WordDefinition>(jsonContent);
 
             if (input == null)
